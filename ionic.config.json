@@ -1,0 +1,7 @@
+{
+  "name": "devMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
