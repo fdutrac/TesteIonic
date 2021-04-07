@@ -1,39 +1,49 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-    
       <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <ion-grid>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size-md="4" size="10" class="ion-margin">
+              <ion-list>
+                <ion-item v-for="fruta in frutas" :key="fruta">
+                  <ion-label @click="openToast(fruta)">{{ fruta }}</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonContent, IonPage, toastController } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
     IonContent,
-    IonHeader,
     IonPage,
-    IonTitle,
-    IonToolbar
-  }
+  },
+  data() {
+    return {
+      frutas: ["Maçã","Banana","Pera","Mamão","Lichia"],
+      data: {}
+    }
+  },
+  methods: {
+    async openToast(listItem: string) {
+      const toast = await toastController
+        .create({
+          message: `Você selecionou a opção ${listItem}!`,
+          duration: 2000
+        })
+      return toast.present();
+    },
+  },
 });
 </script>
 
