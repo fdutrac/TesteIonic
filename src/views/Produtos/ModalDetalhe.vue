@@ -1,12 +1,17 @@
 <template>
   <ion-header>
     <ion-toolbar>
-      <ion-title>{{ title }}</ion-title>
+      <ion-title>{{ produto.name }}</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    {{ produto.img }}
-    {{ produto.valor }}
+    <ion-img :src="produto.img" style=""></ion-img>
+    <ion-text id="descricao">
+      {{ produto.descricao }}
+    </ion-text>
+    <ion-text id="moeda">
+      {{ produto.valor }}
+    </ion-text>
   </ion-content>
   <ion-footer>
     <ion-button @click="fecharModal" color="primary">X</ion-button>
@@ -23,8 +28,6 @@ export default defineComponent({
   props: {
     title: { type: String, default: "Super Modal" },
     produto: {
-      img: "",
-      valor: "",
       // descricao: { type: String },
     },
   },
@@ -36,3 +39,24 @@ export default defineComponent({
   }
 });
 </script>
+<style scoped>
+#caixa {
+  padding: 20px 20px;
+}
+#descricao {
+  display: block;
+  margin: 20px 0px;
+}
+#moeda {
+  display:flex;
+  justify-content: flex-end;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 30px 0px;
+}
+ion-footer {
+  display: flex;
+  padding: 5px 15px;
+  justify-content: flex-end;
+}
+</style>

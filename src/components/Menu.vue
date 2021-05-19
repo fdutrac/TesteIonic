@@ -7,11 +7,17 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <router-link :to="`/`">
-          <ion-item>Login</ion-item>
+        <router-link style="text-decoration: none" :to="`/bebidas`">
+          <ion-item>Bebidas</ion-item>
         </router-link>
-        <router-link to='/'>
-          <ion-item>Badges</ion-item>
+        <router-link style="text-decoration: none" to='/lanches'>
+          <ion-item>Lanches</ion-item>
+        </router-link>
+        <router-link style="text-decoration: none" to='/sobremesas'>
+          <ion-item>Sobremesas</ion-item>
+        </router-link>
+        <router-link style="text-decoration: none" to='/Pratos'>
+          <ion-item>Pratos</ion-item>
         </router-link>
       </ion-list>
     </ion-content>

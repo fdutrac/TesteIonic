@@ -21,7 +21,7 @@
                   <ion-img
                     width="80"
                     height="100"
-                    :src="`./assets/img/${bebida.img}`"
+                    :src="bebida.img"
                   ></ion-img>
                 </ion-card-content>
               </ion-card>
@@ -38,7 +38,7 @@ import {
   IonContent,
   IonPage,
   IonImg,
-  IonModal,
+  // IonModal,
   modalController,
 } from "@ionic/vue";
 import { defineComponent } from "vue";
@@ -59,34 +59,38 @@ export default defineComponent({
       bebidas: [
         {
           id: 1,
-          name: "Chopp 500ml",
-          img: "colorful-soda-drinks-macro-shot.jpg",
+          name: "Bebida Vegetal de Amêndoa",
+          img: "https://livup.imgix.net/website/images/photos-big/leite-vegetal-de-amendoa-integral-1000g-1620144971104.jpg?auto=format",
           valor: "R$10,90",
+          descricao: "Se você acha que já tomou leite vegetal de amêndoas e que é tudo igual, é melhor experimentar o da Tal da Castanha. Esse produto, além de delicioso, vai além dos demais porque não leva gomas, espessantes e conservantes, como muitos outros do mercado.Experimente e sinta essa gostosa diferença."
         },
         {
           id: 2,
-          name: "Guaraná",
-          img: "front-view-woman-eating-meat-burgers.jpg",
-          valor: "R$10,90",
+          name: "Suco Verde",
+          img: "https://livup.imgix.net/website/images/photos-big/suco-verde-1l-green-people-1000g-1591904636301.jpg?auto=format",
+          valor: "R$9,90",
+          descricao: "O suco verde é para aquela pessoa que procura uma bebida natural ao seu alcance. Refresca, traz o docinho da maçã, as fibras da couve e algumas notas de cenoura.",
         },
         {
           id: 3,
-          name: "Suco de Laranja",
-          img:
-            "stir-fried-chili-paste-with-chicken-in-white-plates-on-a-wooden-floor.jpg",
-          valor: "R$10,90",
+          name: "Suco de Abacaxi com Hortelã",
+          img: "https://livup.imgix.net/website/images/photos-big/suco-de-abacaxi-com-hortela-green-people-250g-1591904813983.jpg?auto=format",
+          valor: "R$11,90",
+          descricao: "Um suco refrescante para qualquer ocasião. Abacaxi com hortelã é cítrico, doce e muito equilibrado.Traz o sabor inconfundível da fruta, com a fragrância inigualável do hortelã. "
         },
         {
           id: 4,
-          name: "Energético",
-          img: "close-up-delicious-ice-cream-with-syrup.jpg",
-          valor: "R$10,90",
+          name: "Chá de Hibisco",
+          img: "https://livup.imgix.net/website/images/photos-big/cha-hibisco-250ml-green-people-250g-1608580131902.jpg?auto=format",
+          valor: "R$6,90",
+          descricao: "O hibisco aparece de forma suave com a companhia do gengibre, que tem o sabor bem presente, e do abacaxi, que dá um toque de frescor a esse chá",
         },
         {
           id: 5,
-          name: "Agua",
-          img: "/colorful-soda-drinks-macro-shot.jpg",
-          valor: "R$10,90",
+          name: "Suco de Laranja e Mamão",
+          img: "https://livup.imgix.net/website/images/photos-big/suco-de-laranja-com-mamao-green-people-250g-1591904532323.jpg?auto=format",
+          valor: "R$7,90",
+          descricao:"Um suco rico em vitamina C, com a acidez e frescor da laranja, e o lado mais doce e cremoso do mamão. É a combinação perfeita de frutas pra acompanhar suas refeições ou só matar a vontade de algo gostoso.",
         },
       ],
     };

@@ -5,7 +5,11 @@
         <ion-menu-button>
         </ion-menu-button>
       </ion-buttons>
-      <ion-title>Gourmet</ion-title>
+      <ion-title> 
+        <router-link style="color:green;" to="/home">
+          NaturÊba
+        </router-link>
+      </ion-title>
     </ion-toolbar>
   </ion-header>
 </template>
