@@ -1,16 +1,16 @@
 <template>
   <ion-menu side="start" menu-id="custom" class="my-custom-menu" content-id="main">
     <ion-header>
-      <ion-toolbar color="tertiary">
+      <ion-toolbar color="">
         <ion-title>Menu Navegação</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
-        <router-link to='/cadastro'>
+        <router-link :to="`/`">
           <ion-item>Login</ion-item>
         </router-link>
-        <router-link to='/badges'>
+        <router-link to='/'>
           <ion-item>Badges</ion-item>
         </router-link>
       </ion-list>

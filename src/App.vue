@@ -22,3 +22,29 @@ export default defineComponent({
   }
 });
 </script>
+<style>
+#container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #5e5e5e;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+
+}
+
+</style>

@@ -4,12 +4,34 @@
       <div id="container">
         <ion-grid>
           <ion-row class="ion-justify-content-center">
-            <ion-col size-md="4" size="10" class="ion-margin">
-              <ion-list>
-                <ion-item v-for="fruta in frutas" :key="fruta">
-                  <ion-label @click="openToast(fruta)">{{ fruta }}</ion-label>
-                </ion-item>
-              </ion-list>
+            <ion-col
+              v-for="categoria in categorias"
+              :key="categoria"
+              size-md="4"
+              size="10"
+              class="ion-margin"
+            >
+              <router-link :to="categoria.route">
+                <ion-card>
+                  <ion-card-header>
+                    <ion-card-subtitle>{{ categoria.name }}</ion-card-subtitle>
+                    <ion-card-title v-if="categoria.promo"
+                      >Promoção!</ion-card-title
+                    >
+                  </ion-card-header>
+
+                  <ion-card-content>
+                    <ion-img
+                      width="80"
+                      height="100"
+                      :src="`./assets/img/${categoria.img}`"
+                    ></ion-img>
+                    <ion-text v-if="categoria.promo">{{
+                      categoria.promo
+                    }}</ion-text>
+                  </ion-card-content>
+                </ion-card>
+              </router-link>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -19,43 +41,85 @@
 </template>
 
 <script lang="ts">
-import { IonContent, IonPage, toastController } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import {
+  IonContent,
+  IonPage,
+  IonImg,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardHeader,
+  IonCardContent,
+  IonText,
+} from "@ionic/vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
   components: {
     IonContent,
     IonPage,
+    IonImg,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonCard,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonCardHeader,
+    IonCardContent,
+    IonText,
   },
   data() {
     return {
-      frutas: ["Maçã","Banana","Pera","Mamão","Lichia"],
-      data: {}
-    }
-  },
-  methods: {
-    async openToast(listItem: string) {
-      const toast = await toastController
-        .create({
-          message: `Você selecionou a opção ${listItem}!`,
-          duration: 2000
-        })
-      return toast.present();
-    },
+      categorias: [
+        {
+          id: 1,
+          name: "Bebidas",
+          route: "/bebidas",
+          img: "colorful-soda-drinks-macro-shot.jpg",
+          // img: '/burgers.jpg',
+        },
+        {
+          id: 2,
+          name: "Lanches",
+          route: "/lanches",
+          img: "front-view-woman-eating-meat-burgers.jpg",
+          // img: '/burgers.png',
+        },
+        {
+          id: 3,
+          name: "Pratos",
+          route: "/pratos",
+          img:
+            "stir-fried-chili-paste-with-chicken-in-white-plates-on-a-wooden-floor.jpg",
+        },
+        {
+          id: 4,
+          name: "Sobremesas",
+          route: "/sobremesas",
+          img: "close-up-delicious-ice-cream-with-syrup.jpg",
+        },
+        {
+          id: 5,
+          name: "Prato do Dia",
+          route: "/prato-do-dia",
+          img: "/colorful-soda-drinks-macro-shot.jpg",
+          promo: "Entrada, Prato Principal e Sobremesa!",
+        },
+      ],
+    };
   },
 });
 </script>
 
 <style scoped>
-#container {
+/* #container {
   text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: 40px;
 }
 
 #container strong {
@@ -66,13 +130,14 @@ export default defineComponent({
 #container p {
   font-size: 16px;
   line-height: 22px;
-  
-  color: #8c8c8c;
-  
+
+  color: #5e5e5e;
+
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
-}
+
+} */
 </style>
